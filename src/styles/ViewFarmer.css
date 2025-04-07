@@ -1,0 +1,66 @@
+.view-farmer-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.viewcontent-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+ 
+}
+
+.viewtext-section {
+  flex: 1;
+}
+
+.viewtext-section h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.viewtext-section p {
+  font-size: 16px;
+  color: #333;
+}
+
+.required {
+  color: red;
+}
+
+.viewimage-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.viewfarm-image {
+  width: 750px;
+  height: 650px;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .viewcontent-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .viewimage-section {
+    margin-top: 20px;
+  }
+}
+
+  
