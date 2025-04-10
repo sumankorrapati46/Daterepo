@@ -1,0 +1,4 @@
+[submodule "frontend/farmerrepo"]
+	path = frontend/farmerrepo
+	url = https://github.com/sumankorrapati46/Daterepo.git
+	branch = main
