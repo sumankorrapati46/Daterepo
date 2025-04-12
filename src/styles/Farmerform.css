@@ -1,11 +1,11 @@
 
 .form-wrapper {
     display: flex;
+    justify-content: center;
     flex-direction: row;
-    justify-content: space-between;
     padding: 40px;
-    background-color: #f9f9f9;
-    width: 100%;
+    background-color:rgba(255, 255, 255, 0.9);
+    width: auto;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   
@@ -18,12 +18,14 @@
   .form-right {
     width: 40%;
     display: flex;
+    align-items: flex-end;
+    
     
   }
 
   .form-grid{
     display: flex;
-    width: 900px;
+    width: 850px;
     height: auto;
     gap: 10%;
   }
@@ -33,18 +35,19 @@
  .photo-box{
     width: 120px;
     height: 120px;
-    border: #ccc;
+    border: 1px solid #333;
  }
   
   .form-image {
-    width: auto;
-    height: 730px;
+    width: 100%;
+    height: 660px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   }
   
-  form {
-
+  form { 
+    width: auto;
+    height: auto;
     background-color: #fff;
     padding: 30px;
     border-radius: 12px;
@@ -114,22 +117,21 @@
     font-size: 16px;
     border-radius: 8px;
     border: none;
-    background-color: #007bff;
-    color: white;
+    color: whitesmoke;
     cursor: pointer;
     transition: background-color 0.25s ease;
   }
   
   button:hover {
-    background-color: #0056b3;
+    background-color:#388d19;
   }
   
   button[type="button"] {
-    background-color: #6c757d;
+    background-color: #006838;
   }
   
   button[type="button"]:hover {
-    background-color: #5a6268;
+    background-color: #388d19;
   }
 
   .address-field{
@@ -142,9 +144,21 @@
     height: auto;
   }
 
+  .currentform-grid {
+    display: flex;
+    align-items: flex-end; 
+    gap: 10%;
+
+  }
+
   .current-field{
     width: 900px;
     height: auto;
+  }
+  .proposedform-grid{
+    display: flex;
+    gap: 10%;
+
   }
 
   .proposed-field{
@@ -161,8 +175,17 @@
     width: 900px;
     height: auto;
   }
+  .portal-form-group{
+    width: 900px;
+    height: 400px;
+
+  }
+  .viewcontent-container{
+    width: 900px;
+    height: auto;
+  }
   
-  /* Responsive Design */
+  
   @media (max-width: 900px) {
     .form-wrapper {
       flex-direction: column;

@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import FarmerForm from "./pages/Formerform";
 import Login from "./pages/Login";
 import Register from "./pages/RegistrationForm";
-import ForgotUsername from "./pages/ForgotUsername";
+import ForgotUsername from "./pages/ForgotUserid";
 import ForgotPassword from "./pages/ForgotPassword";
 import logo1 from "./assets/leftlogo.png";
 import logo2 from "./assets/rightlogo.png";
 import "./App.css"
 
-// Layout Component
-function Layout({ children, currentStep = 0 }) {
+
+function Layout({ children, currentStep = 0, onStepChange }) {
   const steps = [
     "🏛️ Personal Information",
     "📌 Address",
@@ -20,6 +20,8 @@ function Layout({ children, currentStep = 0 }) {
     "💧 Irrigation Details",
     "🔍 Other Information",
     "📄 Documents",
+    "🛂 Portal Access",
+    "🚜 View Farmer",
   ];
 
   return (
@@ -31,14 +33,16 @@ function Layout({ children, currentStep = 0 }) {
 
       <div className="infomiddle-container">
         <nav className="infonav-links">
-          {steps.map((label, index) => (
-            <div
-              key={index}
-              className={`infonav-item ${index === currentStep ? "active" : ""}`}
-            >
-              {label}
-            </div>
-          ))}
+        {steps.map((label, index) => (
+  <div
+    key={index}
+    className={`infonav-item ${index === currentStep ? "active" : ""}`}
+    onClick={() => onStepChange && onStepChange(index)}
+              style={{ cursor: "pointer" }}
+  >
+    {label}
+  </div>
+))}
         </nav>
       </div>
 
@@ -47,7 +51,7 @@ function Layout({ children, currentStep = 0 }) {
   );
 }
 
-// AppContent to handle routes
+
 function AppContent() {
   const location = useLocation();
   const noFrameRoutes = ["/login", "/register", "/forgot-username", "/forgot-password"];
@@ -63,7 +67,7 @@ function AppContent() {
     );
   }
 
-  // Main layout route
+ 
   return (
     <Routes>
       <Route
@@ -76,18 +80,17 @@ function AppContent() {
   );
 }
 
-// Wrapper to pass currentStep to Layout
+
 function FarmerFormWrapper() {
-  const [step, setStep] = React.useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
 
   return (
-    <Layout currentStep={step}>
-      <FarmerForm setCurrentStep={setStep} />
+    <Layout currentStep={currentStep}>
+      <FarmerForm currentStep={currentStep} setCurrentStep={setCurrentStep} />
     </Layout>
   );
 }
 
-// Main App component
 function App() {
   return (
     <Router>

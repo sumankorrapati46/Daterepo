@@ -59,9 +59,8 @@ const RegistrationForm = () => {
       <div className="registration-form-container">
         <h2>Registration Form</h2>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="registration-form" onSubmit={handleSubmit(onSubmit)}> 
           <div className="registration-grid">
-            
             <div className="form-column">
               <div className="registrationform-group">
                 <label>First Name *</label>
@@ -95,6 +94,8 @@ const RegistrationForm = () => {
               <div className="registrationform-group">
                 <label>Email Address *</label>
                 <input type="email" {...register("email")} />
+                  console.log(data);
+                  console.log(errors);
                 <p className="error">{errors.email?.message}</p>
               </div>
 
@@ -103,9 +104,6 @@ const RegistrationForm = () => {
                 <input type="password" {...register("password")} />
                 <p className="error">{errors.password?.message}</p>
               </div>
-              <button type="submit" disabled={loading} className="submit-btn">
-                 {loading ? "Registering..." : "Register"}
-              </button>
             </div>
 
             
@@ -150,13 +148,12 @@ const RegistrationForm = () => {
                 <input type="password" {...register("confirmPassword")} />
                 <p className="error">{errors.confirmPassword?.message}</p>
               </div>
-              <button type="reset" className="cancel-btn">Cancel</button>
-
             </div>
           </div>
-
-          
-        </form>
+        </div>
+        <button type="submit" disabled={loading} className="submit-btn">
+                 {loading ? "Registering..." : "Register"}
+              </button>
       </div>
     </div>
   );
